@@ -1,11 +1,16 @@
 import { faBookmark } from "@fortawesome/free-regular-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
+import "swiper/css";
+import { Autoplay } from "swiper/modules";
+import { Swiper, SwiperSlide } from "swiper/react";
+
 interface CardInterface {
   title: string;
   subtitle: string;
   text: string;
   image: string;
+  images: string[];
   date: string;
   link: string;
   thumbnail?: boolean;
@@ -45,8 +50,32 @@ const MyCard: React.FC<CardInterface> = (props) => {
         <div className="flex flex-col gap-2 p-4 shadow-md rounded-md max-w-md bg-white">
           <a href={props.link}>
             <div className="overflow-hidden rounded-md aspect-w-4 aspect-h-3">
-              <img src={props.image} className="object-cover " alt="" />
+              {props.images.length > 0 ? (
+                <Swiper
+                  spaceBetween={10}
+                  slidesPerView={1}
+                  modules={[Autoplay]}
+                  autoplay={{
+                    delay: 3000,
+                    disableOnInteraction: false,
+                  }}
+                >
+                  {props.images.map((image, index) => (
+                    <SwiperSlide key={index}>
+                      <img
+                        src={image}
+                        alt={`Slide ${index}`}
+                        className="object-cover w-full h-full"
+                      />
+                    </SwiperSlide>
+                  ))}
+                </Swiper>
+              ) : (
+                <img src={props.image} className="object-cover " alt="" />
+              )}
             </div>
+            {/* <div className="overflow-hidden rounded-md aspect-w-4 aspect-h-3">
+            </div> */}
             <div className="flex flex-col py-2 mt-1 border-t-1 border-zinc-100/50 rounded-b-md">
               <h3 className="text-gray-500 text-xs font-bold tracking-wide">
                 {props.subtitle}
