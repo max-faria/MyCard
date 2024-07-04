@@ -15,7 +15,7 @@ const MyCard: React.FC<CardInterface> = (props) => {
   return (
     <>
       {props.thumbnail ? (
-        <div className="flex md:flex-col gap-2 p-3 shadow-md rounded-md md:max-w-md bg-white w-full">
+        <div className="flex md:flex-col gap-5 md:gap-2 p-4 shadow-md rounded-md md:max-w-md bg-white w-full">
           <div className="overflow-hidden rounded-md w-fit h-full md:w-auto md:h-auto md:aspect-w-4 md:aspect-h-3">
             <img src={props.image} className="object-cover" alt="" />
           </div>
@@ -42,7 +42,7 @@ const MyCard: React.FC<CardInterface> = (props) => {
           </div>
         </div>
       ) : (
-        <div className="flex flex-col gap-2 p-3 shadow-md rounded-md max-w-md bg-white">
+        <div className="flex flex-col gap-2 p-4 shadow-md rounded-md max-w-md bg-white">
           <a href={props.link}>
             <div className="overflow-hidden rounded-md aspect-w-4 aspect-h-3">
               <img src={props.image} className="object-cover " alt="" />
