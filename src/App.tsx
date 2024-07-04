@@ -5,7 +5,7 @@ import Concert from '../src/assets/festival.jpg';
 import Exhibition from '../src/assets/expo.jpg';
 import Photograph from '../src/assets/photograph.jpg';
 import Seminar from '../src/assets/healthliving.jpg'
-import MyCard from "./components/CardsSecond";
+import MyCard from "./components/MyCard";
 
 function App() {
   return (
